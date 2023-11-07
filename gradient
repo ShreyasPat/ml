@@ -1,0 +1,32 @@
+import numpy as np
+
+# Define the function
+def f(x):
+    return (x + 3)**2
+
+# Define the gradient of the function
+def df(x):
+    return 2 * (x + 3)
+
+# Initialize variables
+x = 2  # Initial point
+learning_rate = 0.1  # Step size
+epsilon = 1e-6  # Convergence threshold
+
+# Run the gradient descent algorithm
+while True:
+    # Calculate the gradient at the current point
+    gradient = df(x)
+
+    # Update the position
+    x_new = x - learning_rate * gradient
+
+    # Check for convergence
+    if abs(gradient) < epsilon:
+        break
+
+    # Update the current point
+    x = x_new
+
+# Print the local minimum
+print("Local minimum:", x)
